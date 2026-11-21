@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>유유케어🐯🐴</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#fffbe3;--card:#fffef6;--tx:#3a2e2a;--sub:#7a6a40;--ac:#ef6c00;--bd:#f3e6a0;--red:#d32f2f;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#1e1a18;--card:#2b2522;--tx:#f5ebe4;--sub:#b3a39a;--bd:#3d3430;--red:#ff8a80;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#1e1a18;--card:#2b2522;--tx:#f5ebe4;--sub:#b3a39a;--bd:#3d3430;--red:#ff8a80;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0 auto;background:var(--bg) url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><g opacity='.75'><g transform='translate(30 30) scale(1)'><circle cx='6.0' cy='0.0' r='5' fill='%23ffb3c7'/><circle cx='1.9' cy='5.7' r='5' fill='%23ffb3c7'/><circle cx='-4.9' cy='3.5' r='5' fill='%23ffb3c7'/><circle cx='-4.9' cy='-3.5' r='5' fill='%23ffb3c7'/><circle cx='1.9' cy='-5.7' r='5' fill='%23ffb3c7'/><circle r='3.2' fill='%23ffe082'/></g><path transform='translate(105 28) scale(1.3)' d='M0 5C-9-2-5-8 0-3C5-8 9-2 0 5z' fill='%23ff9aa2'/><g transform='translate(62 92) scale(1)' fill='%23a5d6a7'><circle cx='-4.5' r='4.5'/><circle cx='4.5' r='4.5'/><circle cy='-4.5' r='4.5'/><circle cy='4.5' r='4.5'/><path d='M3 8q4 5 8 6' stroke='%23a5d6a7' stroke-width='2' fill='none'/></g><g transform='translate(128 102) scale(0.8)'><circle cx='6.0' cy='0.0' r='5' fill='%23b3d9ff'/><circle cx='1.9' cy='5.7' r='5' fill='%23b3d9ff'/><circle cx='-4.9' cy='3.5' r='5' fill='%23b3d9ff'/><circle cx='-4.9' cy='-3.5' r='5' fill='%23b3d9ff'/><circle cx='1.9' cy='-5.7' r='5' fill='%23b3d9ff'/><circle r='3.2' fill='%23ffe082'/></g><path transform='translate(18 78) scale(0.9)' d='M0 5C-9-2-5-8 0-3C5-8 9-2 0 5z' fill='%23d1b3ff'/><g transform='translate(140 148) scale(0.7)' fill='%23a5d6a7'><circle cx='-4.5' r='4.5'/><circle cx='4.5' r='4.5'/><circle cy='-4.5' r='4.5'/><circle cy='4.5' r='4.5'/><path d='M3 8q4 5 8 6' stroke='%23a5d6a7' stroke-width='2' fill='none'/></g><circle cx='10' cy='108' r='4' fill='%23ffd180'/><circle cx='92' cy='142' r='3' fill='%23ce93d8'/><circle cx='148' cy='62' r='3.5' fill='%2380deea'/><circle cx='44' cy='148' r='3' fill='%23ffab91'/><circle cx='112' cy='68' r='2.5' fill='%23ffcc80'/><circle cx='78' cy='12' r='2.5' fill='%2380deea'/><circle cx='8' cy='22' r='2.5' fill='%23a5d6a7'/></g></svg>");color:var(--tx);font-family:system-ui,sans-serif;padding:16px;max-width:480px}
+h1{font-size:20px;margin:4px 0 4px}
+.c{background:var(--card);border:1px solid var(--bd);border-radius:16px;padding:14px;margin-bottom:12px}
+.r{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.s{color:var(--sub);font-size:14px;margin:4px 0}
+.cd{font-size:22px;font-weight:700;margin:6px 0}
+.cd.o{color:var(--red)}
+.tot{font-size:20px;font-weight:700}
+#tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:10px 0}
+#tabs button{background:var(--card);color:var(--tx);border:1px solid var(--bd);padding:10px 0;font-size:12px}
+#tabs button.on{background:var(--ac);color:#fff;border-color:var(--ac)}
+button{background:var(--ac);color:#fff;border:0;border-radius:12px;padding:12px 16px;font-size:16px;font-weight:700;cursor:pointer}
+button.g{background:transparent;color:var(--sub);padding:4px 8px;font-size:18px}
+input{width:72px;font-size:16px;padding:8px;border-radius:8px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);text-align:center}
+input[type=time]{width:110px}
+.f{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.l{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bd)}
+#ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:9;align-items:center;justify-content:center;flex-direction:column;gap:20px;color:#fff;font-size:26px;font-weight:700;text-align:center;padding:20px}
+#ov button{font-size:20px;padding:16px 28px}
+</style></head><body>
+<div class="r"><h1 style="display:flex;align-items:center;gap:8px"><svg width="76" height="40" viewBox="0 0 76 40"><circle cx="4.5" cy="18" r="3.2" fill="#5d3a28"/><circle cx="4.5" cy="24" r="3.2" fill="#5d3a28"/><circle cx="4.5" cy="30" r="3.2" fill="#5d3a28"/><circle cx="35.5" cy="18" r="3.2" fill="#5d3a28"/><circle cx="35.5" cy="24" r="3.2" fill="#5d3a28"/><circle cx="35.5" cy="30" r="3.2" fill="#5d3a28"/><circle cx="20" cy="22" r="14" fill="#ffe0c7"/><path d="M6 18q14-15 28 0q-14-6-28 0z" fill="#5d3a28"/><circle cx="4.5" cy="13.5" r="1.8" fill="#ff4081"/><circle cx="35.5" cy="13.5" r="1.8" fill="#ff4081"/><circle cx="15" cy="23" r="2" fill="#3a2e2a"/><circle cx="25" cy="23" r="2" fill="#3a2e2a"/><circle cx="11" cy="28" r="2.6" fill="#ff8a65" opacity=".5"/><circle cx="29" cy="28" r="2.6" fill="#ff8a65" opacity=".5"/><path d="M16.5 29q3.5 3 7 0" stroke="#3a2e2a" stroke-width="1.6" fill="none" stroke-linecap="round"/><circle cx="58" cy="26" r="11" fill="#ffe0c7"/><path d="M56 17q-2-10 2-12q4 2 2 12q-2 2-4 0z" fill="#8d5a3b"/><path d="M58 14l-6-3v6z" fill="#ff4081"/><path d="M58 14l6-3v6z" fill="#ff4081"/><circle cx="58" cy="14" r="1.7" fill="#e91e63"/><circle cx="54" cy="26" r="1.8" fill="#3a2e2a"/><circle cx="62" cy="26" r="1.8" fill="#3a2e2a"/><circle cx="50" cy="29.5" r="2.3" fill="#ff8a65" opacity=".5"/><circle cx="66" cy="29.5" r="2.3" fill="#ff8a65" opacity=".5"/><path d="M55.5 31q2.5 2.5 5 0" stroke="#3a2e2a" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>유유케어🐯🐴</h1><button class="g" id="wl" onclick="wake()">🔆 꺼짐</button></div>
+<div class="s" id="sh">내 폰에만 저장 중</div>
+<div id="tabs"></div>
+<div class="c" id="p"></div>
+<div class="s">⚠️ 알람은 화면이 켜져 있을 때만 울려요. 🔆를 눌러 화면을 켜두거나, 폰 알람도 함께 쓰세요.</div>
+<div id="ov"><div id="ovt"></div><button onclick="stop()">알람 끄기</button></div>
+<script>
+const TB=[{k:'all',n:'📊 한눈에'},{k:'milk',n:'🍼 분유'},{k:'food',n:'🥣 이유식'},{k:'eu',e:'🐯',d:'은유',get n(){return '💊 '+this.d+this.e}},{k:'ji',e:'🐴',d:'지유',get n(){return '💊 '+this.d+this.e}}];
+const $=id=>document.getElementById(id);
+let cur='all',logs=[],H={milk:3,eu:6,ji:6},db=null,col,cfg,ctx,bi,wl=null,A={},dr={};
+try{const o=JSON.parse(localStorage.getItem('baby2'));if(o){logs=o.logs||[];H={...H,...o.H}}}catch(e){}
+const sv=()=>{try{localStorage.setItem('baby2',JSON.stringify({logs,H}))}catch(e){}};
+const hm=t=>{const d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
+const td=t=>new Date(t).toDateString()==new Date().toDateString();
+const of=k=>logs.filter(l=>l.k==k);
+const lastOf=k=>Math.max(0,...of(k).map(l=>l.t));
+const fmt=ms=>{const s=Math.floor(Math.abs(ms)/1000);return Math.floor(s/3600)+':'+String(Math.floor(s%3600/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
+function unlock(){try{if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state=='suspended')ctx.resume();if(window.Notification&&Notification.permission=='default')Notification.requestPermission()}catch(e){}}
+function beep(){if(!ctx)return;const o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.value=880;g.gain.value=.3;o.start();o.stop(ctx.currentTime+.4)}
+function ring(x){$('ovt').textContent='⏰ '+x.n+' 시간이에요!';$('ov').style.display='flex';clearInterval(bi);beep();bi=setInterval(beep,1500);if(navigator.vibrate)navigator.vibrate([300,150,300]);try{if(window.Notification&&Notification.permission=='granted')new Notification(x.n+' 시간이에요!')}catch(e){}}
+function stop(){clearInterval(bi);$('ov').style.display='none'}
+async function wake(){unlock();try{if(wl){await wl.release();wl=null;$('wl').textContent='🔆 꺼짐'}else{wl=await navigator.wakeLock.request('screen');wl.addEventListener('release',()=>{wl=null;$('wl').textContent='🔆 꺼짐'});$('wl').textContent='🔆 켜짐'}}catch(e){$('wl').textContent='🔆 지원 안 됨'}}
+document.addEventListener('visibilitychange',async()=>{if(document.visibilityState=='visible'&&$('wl').textContent=='🔆 켜짐'&&!wl){try{wl=await navigator.wakeLock.request('screen')}catch(e){}}});
+function add(o){const id='l'+Date.now()+Math.random().toString(36).slice(2,6);if(db)col.doc(id).set(o).catch(()=>{});else{logs.push({id,...o});sv();render()}}
+function del(id){if(db)col.doc(id).delete().catch(()=>{});else{logs=logs.filter(l=>l.id!=id);sv();render()}}
+function setH(v){const n=parseFloat(v);if(n>0){H[cur]=n;if(db)cfg.set(H).catch(()=>{});else sv()}}
+function rec(){unlock();const ml=+($('ml')?$('ml').value:0)||0;if(cur=='milk'||cur=='food'){if(!ml){$('msg').textContent='양(ml)을 적어주세요';return}}
+let t=Date.now();const v='';if(v){const d=new Date(),a=v.split(':');d.setHours(+a[0],+a[1],0,0);t=d.getTime();if(t>Date.now()+6e4)t-=864e5}
+dr={};add({k:cur,t,ml});if(!db)return}
+function go(k){dr={};cur=k;render()}
+function render(){
+if($('ml'))dr.ml=$('ml').value;if($('tm'))dr.tm=$('tm').value;
+$('tabs').innerHTML=TB.map(x=>`<button class="${x.k==cur?'on':''}" onclick="go('${x.k}')">${x.n}<span id="d${x.k}"></span></button>`).join('');
+if(cur=='all'){$('p').innerHTML=TB.filter(y=>y.k!='all').map(y=>{const ls=of(y.k).sort((a,b)=>b.t-a.t),tl=ls.filter(l=>td(l.t)),e=y.k=='milk'||y.k=='food';return `<div class="l" style="display:block;padding:10px 0"><div class="r"><b>${y.n}</b><span>${e?tl.reduce((a,l)=>a+(l.ml||0),0)+'ml · ':''}오늘 ${tl.length}회</span></div><div class="s">마지막 ${ls.length?hm(ls[0].t)+(e&&ls[0].ml?' · '+ls[0].ml+'ml':''):'기록 없음'}</div>${H[y.k]!=null?`<div class="cd" id="o${y.k}"></div>`:''}</div>`}).join('');tick();return}
+const x=TB.find(y=>y.k==cur),ls=of(cur).sort((a,b)=>b.t-a.t),tl=ls.filter(l=>td(l.t)),eat=cur=='milk'||cur=='food',tm=H[cur]!=null;
+const lm=ls.length?ls[0].ml:'';
+let h=`<div class="r"><b style="font-size:18px">${x.n}</b>${eat?`<span class="tot">오늘 ${tl.reduce((a,l)=>a+(l.ml||0),0)}ml <span class="s">(${tl.length}회)</span></span>`:`<span class="tot">오늘 ${tl.length}회</span>`}</div>`;
+h+=`<div class="s">${ls.length?'마지막: '+hm(ls[0].t)+(eat&&ls[0].ml?' · '+ls[0].ml+'ml':''):'아직 기록이 없어요'}</div>`;
+if(tm)h+=`<div class="cd" id="cd"></div><div class="s">간격 <input type="number" step="0.5" min="0.5" value="${H[cur]}" onchange="setH(this.value)"> 시간마다</div>`;
+h+=`<div class="f">${eat?`<input id="ml" type="number" min="0" placeholder="ml" value="${dr.ml!=null?dr.ml:lm}">`:''}<button onclick="rec()">지금 먹였어요</button></div><div class="s" id="msg"></div>`;
+h+=tl.length?tl.map(l=>`<div class="l"><span>${hm(l.t)}${eat?' · '+(l.ml||0)+'ml':''}</span><button class="g" onclick="del('${l.id}')">✕</button></div>`).join(''):'';
+$('p').innerHTML=h;tick()}
+function tick(){['milk','eu','ji'].forEach(k=>{const l=lastOf(k),d=l?l+H[k]*36e5-Date.now():1,x=TB.find(y=>y.k==k),e=$('d'+k);if(e)e.textContent=l&&d<=0?'🔴':'';
+if(l&&d<=0&&!A[k+l]){A[k+l]=1;ring(x)}
+const tx=!l?'—':d>0?'다음까지 '+fmt(d):'⏰ '+fmt(d)+' 지남',cl='cd'+(l&&d<=0?' o':'');[k==cur?$('cd'):null,$('o'+k)].forEach(e=>{if(e){e.textContent=tx;e.className=cl}})})}
+render();setInterval(tick,1000);document.addEventListener('click',unlock,{once:true});
+(async()=>{try{if(typeof claude=='undefined')return;db=await claude.use('db')}catch(e){}
+if(!db)return;col=db.collection('logs');cfg=db.doc('cfg/h');logs=[];
+col.onSnapshot(s=>{logs=s.docs.map(d=>({id:d.id,...d.data()}));render()},()=>{});
+cfg.onSnapshot(s=>{if(s.exists){H={...H,...s.data()};render()}},()=>{});
+$('sh').textContent='👨‍👩‍👧 가족 공유 켜짐'})();
+</script></body></html>
