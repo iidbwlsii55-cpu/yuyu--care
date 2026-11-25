@@ -40,6 +40,7 @@ const sv=()=>{try{localStorage.setItem('baby2',JSON.stringify({logs,H}))}catch(e
 const hm=t=>{const d=new Date(t);return String(d.getHours()).padStart(2,'0')+':'+String(d.getMinutes()).padStart(2,'0')};
 const td=t=>new Date(t).toDateString()==new Date().toDateString();
 const of=k=>logs.filter(l=>l.k==k);
+const on=k=>H[k+'_on']!==false;
 const lastOf=k=>Math.max(0,...of(k).map(l=>l.t));
 const fmt=ms=>{const s=Math.floor(Math.abs(ms)/1000);return Math.floor(s/3600)+':'+String(Math.floor(s%3600/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')};
 function unlock(){try{if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state=='suspended')ctx.resume();if(window.Notification&&Notification.permission=='default')Notification.requestPermission()}catch(e){}}
@@ -56,6 +57,7 @@ let t=Date.now();const v='';if(v){const d=new Date(),a=v.split(':');d.setHours(+
 dr={};add({k:cur,t,ml});if(!db)return}
 const kt=t=>{const d=new Date(t),h=d.getHours(),m=d.getMinutes();return(d.toDateString()==new Date().toDateString()?'':'내일 ')+(h<12?'오전 ':'오후 ')+(h%12||12)+'시'+(m?' '+m+'분':'')};
 function edT(id,v){const l=logs.find(x=>x.id==id);if(!l||!v)return;const d=new Date(l.t),a=v.split(':');d.setHours(+a[0],+a[1],0,0);let t=d.getTime();if(t>Date.now()+6e4)t-=864e5;if(db)col.doc(id).set({k:l.k,t,ml:l.ml||0}).catch(()=>{});else{l.t=t;sv();render()}}
+function tog(){const k=cur;H[k+'_on']=!on(k);if(H[k+'_on'])A[k+lastOf(k)]=1;if(db)cfg.set(H).catch(()=>{});else sv();render()}
 function go(k){dr={};cur=k;render()}
 function render(){
 if($('ml'))dr.ml=$('ml').value;if($('tm'))dr.tm=$('tm').value;
@@ -65,13 +67,14 @@ const x=TB.find(y=>y.k==cur),ls=of(cur).sort((a,b)=>b.t-a.t),tl=ls.filter(l=>td(
 const lm=ls.length?ls[0].ml:'';
 let h=`<div class="r"><b style="font-size:18px">${x.n}</b>${eat?`<span class="tot">오늘 ${tl.reduce((a,l)=>a+(l.ml||0),0)}ml <span class="s">(${tl.length}회)</span></span>`:`<span class="tot">오늘 ${tl.length}회</span>`}</div>`;
 h+=`<div class="s">${ls.length?'마지막: '+hm(ls[0].t)+(eat&&ls[0].ml?' · '+ls[0].ml+'ml':''):'아직 기록이 없어요'}</div>`;
-if(tm)h+=`<div class="cd" id="cd"></div><div class="s">간격 <input type="number" step="0.5" min="0.5" value="${H[cur]}" onchange="setH(this.value)"> 시간마다</div>`;
-h+=`<div class="f">${eat?`<input id="ml" type="number" min="0" placeholder="ml" value="${dr.ml!=null?dr.ml:lm}">`:''}<button onclick="rec()">지금 먹였어요</button></div><div class="s" id="msg"></div>`;
+const med=cur=='eu'||cur=='ji',off=med&&!on(cur);if(med)h+=`<div class="f"><button onclick="tog()" style="background:${off?'var(--sub)':'#43a047'}">${off?'⚪ 투약 OFF (쉬는 중)':'🟢 투약 ON'}</button></div>${off?'<div class="s">오늘은 약을 쉬어요. 알람도 꺼져 있어요.</div>':''}`;
+if(tm&&!off)h+=`<div class="cd" id="cd"></div><div class="s">간격 <input type="number" step="0.5" min="0.5" value="${H[cur]}" onchange="setH(this.value)"> 시간마다</div>`;
+if(!off)h+=`<div class="f">${eat?`<input id="ml" type="number" min="0" placeholder="ml" value="${dr.ml!=null?dr.ml:lm}">`:''}<button onclick="rec()">지금 먹였어요</button></div><div class="s" id="msg"></div>`;
 h+=tl.length?'<div class="s">⏱ 기록 시각을 눌러 고칠 수 있어요</div>'+tl.map(l=>`<div class="l"><span><input type="time" value="${hm(l.t)}" onchange="edT('${l.id}',this.value)" style="width:110px">${eat?' · '+(l.ml||0)+'ml':''}</span><button class="g" onclick="del('${l.id}')">✕</button></div>`).join(''):'';
 $('p').innerHTML=h;tick()}
-function tick(){['milk','eu','ji'].forEach(k=>{const l=lastOf(k),d=l?l+H[k]*36e5-Date.now():1,x=TB.find(y=>y.k==k),e=$('d'+k);if(e)e.textContent=l&&d<=0?'🔴':'';
-if(l&&d<=0&&!A[k+l]){A[k+l]=1;ring(x)}
-const nt=l+H[k]*36e5,wd=k=='milk'?'수유':'투약',tx=!l?'—':d>0?'다음 '+wd+' '+kt(nt):'⏰ '+wd+' 시간! ('+kt(nt)+')',cl='cd'+(l&&d<=0?' o':'');[k==cur?$('cd'):null,$('o'+k)].forEach(e=>{if(e){e.textContent=tx;e.className=cl}})})}
+function tick(){['milk','eu','ji'].forEach(k=>{const l=lastOf(k),d=l?l+H[k]*36e5-Date.now():1,x=TB.find(y=>y.k==k),e=$('d'+k),off=!on(k);if(e)e.textContent=l&&d<=0&&!off?'🔴':'';
+if(l&&d<=0&&!off&&!A[k+l]){A[k+l]=1;ring(x)}
+const nt=l+H[k]*36e5,wd=k=='milk'?'수유':'투약',tx=off?'⚪ 쉬는 중':!l?'—':d>0?'다음 '+wd+' '+kt(nt):'⏰ '+wd+' 시간! ('+kt(nt)+')',cl='cd'+(l&&d<=0&&!off?' o':'');[k==cur?$('cd'):null,$('o'+k)].forEach(e=>{if(e){e.textContent=tx;e.className=cl}})})}
 render();setInterval(tick,1000);document.addEventListener('click',unlock,{once:true});
 (async()=>{try{if(typeof claude=='undefined')return;db=await claude.use('db')}catch(e){}
 if(!db)return;col=db.collection('logs');cfg=db.doc('cfg/h');logs=[];
